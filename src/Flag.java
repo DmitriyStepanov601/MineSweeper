@@ -6,7 +6,7 @@ public class Flag {
     private Matrix flagMap;
     private int countOfClosedBoxes;
 
-    public void start(){
+    public void start() {
         flagMap = new Matrix(Box.CLOSED);
         countOfClosedBoxes = Ranges.getSize().x * Ranges.getSize().y;
     }
@@ -20,8 +20,8 @@ public class Flag {
         countOfClosedBoxes--;
     }
 
-    public void toggleFlagedToBox(Coord coord){
-        switch(flagMap.get(coord)){
+    public void toggleFlagedToBox(Coord coord) {
+        switch(flagMap.get(coord)) {
             case FLAGED: setClosedToBox(coord); break;
             case CLOSED: setFlagedToBox(coord); break;
         }

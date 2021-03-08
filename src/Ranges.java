@@ -27,15 +27,15 @@ public class Ranges {
         return allCoords;
     }
 
-    public static boolean inRange(Coord coord){
+    public static boolean inRange(Coord coord) {
         return coord.x >= 0 && coord.x < size.x && coord.y >= 0 && coord.y < size.y;
     }
 
-    public static Coord getRandomCoord(){
+    public static Coord getRandomCoord() {
         return new Coord (random.nextInt(size.x), random.nextInt(size.y));
     }
 
-    public static ArrayList<Coord> getCoordAround(Coord coord){
+    public static ArrayList<Coord> getCoordAround(Coord coord) {
         Coord around;
         ArrayList<Coord> list = new ArrayList<>();
         for (int x = coord.x - 1; x <= coord.x + 1; x++)

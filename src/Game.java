@@ -5,7 +5,6 @@
 public class Game {
     private final Bomb bomb;
     private final Flag flag;
-
     private GameState state;
 
     public GameState getState() {
@@ -19,19 +18,19 @@ public class Game {
      * @param bombs - number of bombs
      * @see Game#Game(int,int,int)
      */
-    public Game(int cols, int rows, int bombs){
+    public Game(int cols, int rows, int bombs) {
         Ranges.setSize(new Coord(cols, rows));
         bomb = new Bomb(bombs);
         flag = new Flag();
     }
 
-    public void start(){
+    public void start() {
         bomb.start();
         flag.start();
         state = GameState.PLAYED;
     }
 
-    public Box getBox(Coord coord){
+    public Box getBox(Coord coord) {
         if(flag.get(coord) == Box.OPENED)
             return bomb.get(coord);
         else
@@ -44,18 +43,18 @@ public class Game {
         checkWinner();
     }
 
-    private void checkWinner(){
+    private void checkWinner() {
         if(state == GameState.PLAYED)
             if(flag.getCountOfClosedBoxes() == bomb.getTotalBombs())
                 state = GameState.WINNER;
     }
 
     private void openBox(Coord coord) {
-        switch(flag.get(coord)){
+        switch(flag.get(coord)) {
             case OPENED: setOpenedToClosedBoxesAroundNumber(coord); return;
             case FLAGED: return;
             case CLOSED:
-                switch (bomb.get(coord)){
+                switch (bomb.get(coord)) {
                     case ZERO: openBoxesAround(coord); return;
                     case BOMB: openBombs(coord); return;
                     default: flag.setOpenedToBox(coord);
