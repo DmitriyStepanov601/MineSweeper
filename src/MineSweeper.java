@@ -20,7 +20,7 @@ public class MineSweeper extends JFrame {
      * Constructor - creating a new game
      * @see MineSweeper#MineSweeper()
      */
-    private MineSweeper(){
+    private MineSweeper() {
         game = new Game(COLS, ROWS, BOMBS);
         game.start();
 
@@ -40,7 +40,7 @@ public class MineSweeper extends JFrame {
     }
 
 
-    private void initPanel(){
+    private void initPanel() {
         panel = new JPanel(){
             @Override
             protected void paintComponent(Graphics g) {
@@ -93,18 +93,18 @@ public class MineSweeper extends JFrame {
         return null;
     }
 
-    private void message(String filename, String title, String message){
+    private void message(String filename, String title, String message) {
         ImageIcon icon = new ImageIcon((getClass().getResource(filename)));
         JOptionPane.showMessageDialog(null, message, title,
                 JOptionPane.INFORMATION_MESSAGE, icon);
     }
 
-    private void setImages(){
+    private void setImages() {
         for(Box box: Box.values())
             box.image = getImage(box.name().toLowerCase());
     }
 
-    private Image getImage(String name){
+    private Image getImage(String name) {
         String filename = "/" + name + ".png";
         ImageIcon icon = new ImageIcon(getClass().getResource(filename));
         return icon.getImage();

@@ -3,5 +3,7 @@
  * @author Dmitriy Stepanov
  */
 public enum GameState {
-    PLAYED, BOMBED, WINNER;
+    PLAYED,
+    BOMBED,
+    WINNER;
 }
